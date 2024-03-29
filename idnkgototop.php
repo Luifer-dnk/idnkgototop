@@ -5,22 +5,33 @@ if (!defined('_PS_VERSION_'))
  
 class IdnkGoToTop extends Module
 {
-  public function __construct()
-  {
-    $this->name = 'idnkgototop';
-    $this->tab = 'front_office_features';
-    $this->version = 1.0;
-    $this->author = 'IDNK Soft';
-    $this->need_instance = 0;
- 
-    parent::__construct();
- 
-    $this->displayName = $this->l('IDNK Go to Top');
-    $this->description = $this->l('Adds a link to Go to top of pages.');
-  }
+    public function __construct()
+    {
+        $this->name = 'idnkgototop';
+        $this->tab = 'front_office_features';
+        $this->version = 1.0;
+        $this->author = 'IDNK Soft';
+        $this->need_instance = 0;
+
+        $this->bootstrap = true;
+        parent::__construct();
+
+        $this->displayName = $this->l('IDNK Go to Top');
+        $this->description = $this->l('Adds a link to Go to top of pages.');
+
+        $this->ps_versions_compliancy = ['min' => '1.7.5.0', 'max' => _PS_VERSION_];
+
+    }
  
 	public function install()
 	{
+        Configuration::updateValue('IDNK_GOTOTOP_FONT_COLOR', '#ffffff');
+        Configuration::updateValue('IDNK_GOTOTOP_BG_COLOR', '#181818');
+        Configuration::updateValue('IDNK_GOTOTOP_FONT_SIZE', '3rem');
+        Configuration::updateValue('IDNK_GOTOTOP_PADDING', '1rem');
+        Configuration::updateValue('IDNK_GOTOTOP_BORDER', '1px solid');
+        Configuration::updateValue('IDNK_GOTOTOP_BORDERRADIUS', '100vmax');
+        Configuration::updateValue('IDNK_GOTOTOP_HOVEREFFECT', '');
 
         return parent::install()
             && $this->registerHook('displayHeader')
@@ -44,11 +55,17 @@ class IdnkGoToTop extends Module
             $bgColor = (string)Tools::getValue('IDNK_GOTOTOP_BG_COLOR');
             $fontSize = (string)Tools::getValue('IDNK_GOTOTOP_FONT_SIZE');
             $paddingSpace = (string)Tools::getValue('IDNK_GOTOTOP_PADDING');
+            $borderStyle = (string)Tools::getValue('IDNK_GOTOTOP_BORDER');
+            $borderRadius = (string)Tools::getValue('IDNK_GOTOTOP_BORDERRADIUS');
+            $hoverEffect = (string)Tools::getValue('IDNK_GOTOTOP_HOVEREFFECT');
 
             Configuration::updateValue('IDNK_GOTOTOP_FONT_COLOR', $fontColor);
             Configuration::updateValue('IDNK_GOTOTOP_BG_COLOR', $bgColor);
             Configuration::updateValue('IDNK_GOTOTOP_FONT_SIZE', $fontSize);
             Configuration::updateValue('IDNK_GOTOTOP_PADDING', $paddingSpace);
+            Configuration::updateValue('IDNK_GOTOTOP_BORDER', $borderStyle);
+            Configuration::updateValue('IDNK_GOTOTOP_BORDERRADIUS', $borderRadius);
+            Configuration::updateValue('IDNK_GOTOTOP_HOVEREFFECT', $hoverEffect);
 
             $output .= $this->displayConfirmation($this->trans('Settings updated', array(), 'Admin.IdnkGoToTop.Success'));
         }
@@ -97,6 +114,33 @@ class IdnkGoToTop extends Module
                     'col' => '4',
                     'required' => false
                 ],
+                [
+                    'type' => 'text',
+                    'label' => $this->trans('Border Asign', [], 'Modules.IdnkGoToTop.Admin'),
+                    'name' => 'IDNK_GOTOTOP_BORDER',
+                    'desc' => $this->trans('Put values for border: 1ps solid #181818.', [], 'Modules.IdnkGoToTop.Admin'),
+                    'maxlength' => 200,
+                    'col' => '4',
+                    'required' => false
+                ],
+                [
+                    'type' => 'text',
+                    'label' => $this->trans('Border Radius', [], 'Modules.IdnkGoToTop.Admin'),
+                    'name' => 'IDNK_GOTOTOP_BORDERRADIUS',
+                    'desc' => $this->trans('Put values for border radius: 100vmax, 50%, 10px.', [], 'Modules.IdnkGoToTop.Admin'),
+                    'maxlength' => 200,
+                    'col' => '4',
+                    'required' => false
+                ],
+                [
+                    'type' => 'text',
+                    'label' => $this->trans('Hover Effect', [], 'Modules.IdnkGoToTop.Admin'),
+                    'name' => 'IDNK_GOTOTOP_HOVEREFFECT',
+                    'desc' => $this->trans('Put values for hover effect: filter: hue-rotate(90deg), filter: opacity(0.5).', [], 'Modules.IdnkGoToTop.Admin'),
+                    'maxlength' => 200,
+                    'col' => '4',
+                    'required' => false
+                ],
             ],
             'submit' => [
                 'title' => $this->trans('Save', [], 'Admin.Actions'),
@@ -135,23 +179,32 @@ class IdnkGoToTop extends Module
         $helper->fields_value['IDNK_GOTOTOP_BG_COLOR'] = Configuration::get('IDNK_GOTOTOP_BG_COLOR');
         $helper->fields_value['IDNK_GOTOTOP_FONT_SIZE'] = Configuration::get('IDNK_GOTOTOP_FONT_SIZE');
         $helper->fields_value['IDNK_GOTOTOP_PADDING'] = Configuration::get('IDNK_GOTOTOP_PADDING');
+        $helper->fields_value['IDNK_GOTOTOP_BORDER'] = Configuration::get('IDNK_GOTOTOP_BORDER');
+        $helper->fields_value['IDNK_GOTOTOP_BORDERRADIUS'] = Configuration::get('IDNK_GOTOTOP_BORDERRADIUS');
+        $helper->fields_value['IDNK_GOTOTOP_HOVEREFFECT'] = Configuration::get('IDNK_GOTOTOP_HOVEREFFECT');
 
         return $helper->generateForm($fields_form);
     }
 
     public function hookDisplayHeader($params)
     {
-        $fontColor = Configuration::get('IDNK_GOTOTOP_FONT_COLOR', '#000000');
-        $bgColor = Configuration::get('IDNK_GOTOTOP_BG_COLOR', '#ffffff');
-        $fontSize = Configuration::get('IDNK_GOTOTOP_FONT_SIZE', '14px');
-        $paddingSpace = Configuration::get('IDNK_GOTOTOP_PADDING', '10px');
+        $fontColor = Configuration::get('IDNK_GOTOTOP_FONT_COLOR', '#ffffff');
+        $bgColor = Configuration::get('IDNK_GOTOTOP_BG_COLOR', '#181818');
+        $fontSize = Configuration::get('IDNK_GOTOTOP_FONT_SIZE', '3rem');
+        $paddingSpace = Configuration::get('IDNK_GOTOTOP_PADDING', '1rem');
+        $borderStyle = Configuration::get('IDNK_GOTOTOP_BORDER', '1px solid #fff');
+        $borderRadius = Configuration::get('IDNK_GOTOTOP_BORDERRADIUS', '100vmax');
+        $hoverEffect = Configuration::get('IDNK_GOTOTOP_HOVEREFFECT', '');
 
         $this->context->smarty->assign(
             [
                 'fontColor' => $fontColor,
                 'bgColor' => $bgColor,
                 'fontSize' => $fontSize,
-                'paddingSpace' => $paddingSpace
+                'paddingSpace' => $paddingSpace,
+                'borderStyle' => $borderStyle,
+                'borderRadius' => $borderRadius,
+                'hoverEffect' => $hoverEffect
             ]
         );
 

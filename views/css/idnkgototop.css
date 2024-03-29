@@ -11,7 +11,4 @@
 	font-size: 24px;
 	border-radius: 50%; /* Ajusta el radio de borde según tu necesidad */
 }
-
-.idnkgototopcss:hover {
-	filter: hue-rotate(90deg);
-}
+.idnkgototopcss:hover {$hoverEffect}
