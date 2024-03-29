@@ -1,16 +1,17 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
 #gotoTop {
 	text-align: center;
 	position: fixed;
 	bottom: 2%;
+	text-align: center;
 	right: 2%;
 	cursor: pointer;
-	display: none;
-	z-index:9000;
-	width:49px;
-	height:49px;
-	background:url(../../img/gototop.png) no-repeat left top; opacity:0.7; filter: alpha(opacity = 70);
+	z-index: 9000;
+	font-size: 24px;
+	border-radius: 50%; /* Ajusta el radio de borde según tu necesidad */
 }
 
-#gotoTop:hover {
-	opacity:1; filter: alpha(opacity = 100);}
-
+.idnkgototopcss:hover {
+	filter: hue-rotate(90deg);
+}
