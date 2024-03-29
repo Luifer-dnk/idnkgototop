@@ -1,0 +1,16 @@
+#gotoTop {
+	text-align: center;
+	position: fixed;
+	bottom: 2%;
+	right: 2%;
+	cursor: pointer;
+	display: none;
+	z-index:9000;
+	width:49px;
+	height:49px;
+	background:url(../../img/gototop.png) no-repeat left top; opacity:0.7; filter: alpha(opacity = 70);
+}
+
+#gotoTop:hover {
+	opacity:1; filter: alpha(opacity = 100);}
+

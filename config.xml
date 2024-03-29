@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <module>
+            <name>idnkgototop</name>
+            <displayName><![CDATA[FME Back to Top]]></displayName>
+            <version><![CDATA[1]]></version>
+            <description><![CDATA[Adds a link to Scroll to top of pages.]]></description>
+            <author><![CDATA[FME Modules]]></author>
+            <tab><![CDATA[front_office_features]]></tab>
+            <is_configurable>0</is_configurable>
+            <need_instance>0</need_instance>
+	<limited_countries></limited_countries>
+        </module>
