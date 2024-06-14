@@ -1,14 +1,14 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
 
 #gotoTop {
-	text-align: center;
-	position: fixed;
-	bottom: 2%;
-	text-align: center;
-	right: 2%;
-	cursor: pointer;
-	z-index: 9000;
-	font-size: 24px;
-	border-radius: 50%; /* Ajusta el radio de borde según tu necesidad */
+    position: fixed;
+    bottom: 2%;
+    text-align: center;
+    right: 2%;
+    cursor: pointer;
+    z-index: 9000;
 }
-.idnkgototopcss:hover {$hoverEffect}
+
+.idnkgototopcss:hover {
+    filter: hue-rotate(90deg);
+}
