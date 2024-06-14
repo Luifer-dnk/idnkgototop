@@ -58,12 +58,12 @@ public function getContent()
 
     if (Tools::isSubmit('submit'.$this->name))
     {
-        $fontColor = strval(Tools::getValue('IDNK_GOTOTOP_FONT_COLOR'));
-        $bgColor = strval(Tools::getValue('IDNK_GOTOTOP_BG_COLOR'));
-        $fontSize = strval(Tools::getValue('IDNK_GOTOTOP_FONT_SIZE'));
-        $paddingSpace = strval(Tools::getValue('IDNK_GOTOTOP_PADDING'));
-        $borderColor = strval(Tools::getValue('IDNK_GOTOTOP_BORDER'));
-        $borderRadius = strval(Tools::getValue('IDNK_GOTOTOP_BORDER_RADIUS'));
+        $fontColor = (string)Tools::getValue('IDNK_GOTOTOP_FONT_COLOR');
+        $bgColor = (string)Tools::getValue('IDNK_GOTOTOP_BG_COLOR');
+        $fontSize = (string)Tools::getValue('IDNK_GOTOTOP_FONT_SIZE');
+        $paddingSpace = (string)Tools::getValue('IDNK_GOTOTOP_PADDING');
+        $borderColor = (string)Tools::getValue('IDNK_GOTOTOP_BORDER');
+        $borderRadius = (string)Tools::getValue('IDNK_GOTOTOP_BORDER_RADIUS');
 
         // Guardar los valores en la configuración
         Configuration::updateValue('IDNK_GOTOTOP_FONT_COLOR', $fontColor);
