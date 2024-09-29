@@ -1,30 +1,30 @@
 <?php
 
-if (!defined('_PS_VERSION_')) {
+if (!defined('_PS_VERSION_'))
     exit;
-}
 
 class IdnkGoToTop extends Module
 {
     public function __construct()
     {
         $this->name = 'idnkgototop';
-        $this->tab = 'front_office_features';
-        $this->version = '1.0.0';
         $this->author = 'IDNK Soft';
+        $this->version = '1.0.0';
+        $this->tab = 'front_office_features';
         $this->need_instance = 0;
 
         $this->bootstrap = true;
         parent::__construct();
 
-        $this->displayName = $this->l('IDNK Go to Top');
-        $this->description = $this->l('Adds a link to Go to top of pages.');
+        $this->displayName = $this->trans('IDNK Go to Top', array(), 'Modules.IdnkGoToTop.Admin');
+        $this->description = $this->trans('Adds a link to Go to top of pages.', array(), 'Modules.IdnkGoToTop.Admin');
 
         $this->ps_versions_compliancy = ['min' => '1.7.5.0', 'max' => _PS_VERSION_];
     }
 
     public function createTabs(): void
     {
+        // Eliminar tabs antiguos
         $this->deleteTabs();
 
         // Tab Principal
@@ -32,7 +32,7 @@ class IdnkGoToTop extends Module
             $parent_tab = new Tab();
             $parent_tab->name = [];
             foreach (Language::getLanguages(true) as $lang) {
-                $parent_tab->name[$lang['id_lang']] = $this->l('IdnkSoft');
+                $parent_tab->name[$lang['id_lang']] = $this->trans('IdnkSoft');
             }
 
             $parent_tab->class_name = 'AdminIdnkSoft';
@@ -49,7 +49,7 @@ class IdnkGoToTop extends Module
         $parent = new Tab();
         $parent->name = [];
         foreach (Language::getLanguages(true) as $lang) {
-            $parent->name[$lang['id_lang']] = $this->l('Go To Top');
+            $parent->name[$lang['id_lang']] = $this->trans('Go To Top');
         }
 
         $parent->class_name = 'AdminIdnkGoToTop';
@@ -62,7 +62,7 @@ class IdnkGoToTop extends Module
         $tab_config = new Tab();
         $tab_config->name = [];
         foreach (Language::getLanguages(true) as $lang) {
-            $tab_config->name[$lang['id_lang']] = $this->l('Configuration');
+            $tab_config->name[$lang['id_lang']] = $this->trans('Configuración');
         }
 
         $tab_config->class_name = 'AdminIdnkGoToTopConfig';
@@ -98,13 +98,13 @@ class IdnkGoToTop extends Module
 
     private function setDefaultValues()
     {
+        Configuration::updateValue('IDNK_GOTOTOP_DESIGN', 'style10');
         Configuration::updateValue('IDNK_GOTOTOP_FONT_COLOR', '#000000');
-        Configuration::updateValue('IDNK_GOTOTOP_BG_COLOR', '#bdbdbd');
-        Configuration::updateValue('IDNK_GOTOTOP_FONT_SIZE', '14px');
-        Configuration::updateValue('IDNK_GOTOTOP_PADDING', '20px');
-        Configuration::updateValue('IDNK_GOTOTOP_BORDER', '1px solid #000');
+        Configuration::updateValue('IDNK_GOTOTOP_BG_COLOR', '#fff00');
+        Configuration::updateValue('IDNK_GOTOTOP_FONT_SIZE', '24px');
+        Configuration::updateValue('IDNK_GOTOTOP_PADDING', '15px');
+        Configuration::updateValue('IDNK_GOTOTOP_BORDER', 'none');
         Configuration::updateValue('IDNK_GOTOTOP_BORDER_RADIUS', '50%');
-
         return true;
     }
 
@@ -122,26 +122,28 @@ class IdnkGoToTop extends Module
 
     public function hookDisplayHeader($params)
     {
-        $fontColor = Configuration::get('IDNK_GOTOTOP_FONT_COLOR', '#000000');
-        $bgColor = Configuration::get('IDNK_GOTOTOP_BG_COLOR', '#bdbdbd');
-        $fontSize = Configuration::get('IDNK_GOTOTOP_FONT_SIZE', '14px');
-        $paddingSpace = Configuration::get('IDNK_GOTOTOP_PADDING', '20px');
-        $borderColor = Configuration::get('IDNK_GOTOTOP_BORDER', '1px solid #000');
-        $borderRadius = Configuration::get('IDNK_GOTOTOP_BORDER_RADIUS', '50%');
+        $effectStyle = Configuration::get('IDNK_GOTOTOP_DESIGN');
+        $fontColor = Configuration::get('IDNK_GOTOTOP_FONT_COLOR');
+        $bgColor = Configuration::get('IDNK_GOTOTOP_BG_COLOR');
+        $fontSize = Configuration::get('IDNK_GOTOTOP_FONT_SIZE');
+        $paddingSpace = Configuration::get('IDNK_GOTOTOP_PADDING');
+        $borderColor = Configuration::get('IDNK_GOTOTOP_BORDER');
+        $borderRadius = Configuration::get('IDNK_GOTOTOP_BORDER_RADIUS');
 
         $this->context->smarty->assign(
             [
+                'effectStyle' => $effectStyle,
                 'fontColor' => $fontColor,
                 'bgColor' => $bgColor,
                 'fontSize' => $fontSize,
                 'paddingSpace' => $paddingSpace,
                 'borderColor' => $borderColor,
-                'borderRadius' => $borderRadius,
+                'borderRadius' => $borderRadius
             ]
         );
 
-        $this->context->controller->addCSS($this->_path . 'views/css/idnkgototop.css');
-        $this->context->controller->addJS($this->_path . 'views/js/idnkgototop.js');
+        $this->context->controller->addCSS($this->_path.'views/css/idnkgototop.css');
+        $this->context->controller->addJS($this->_path.'views/js/idnkgototop.js');
     }
 
     public function hookDisplayFooter($params)
