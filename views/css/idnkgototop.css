@@ -4,9 +4,9 @@
 */
 #gotoTop {
     position: fixed;
-    bottom: 50px;
+    bottom: 40px;
+    right: 80px;
     text-align: center;
-    right: 70px;
     cursor: pointer;
     z-index: 100;
 }
@@ -17,12 +17,12 @@
 }
 
 .idnkgtp-style-style01 .pulse-to-top {
-    right: 4%;
-    bottom: 4%;
+    right: 75px;
+    bottom: 35px;
     border-radius: 50%;
-    background-color: #e4aaac;
-    width: 60px;
-    height: 60px;
+    background-color: var(--blue);
+    width: var(--pulseSize);
+    height: var(--pulseSize);
     position: fixed;
     opacity: 0;
     animation: scaleIn 5s infinite cubic-bezier(0.36, 0.11, 0.89, 0.32);
@@ -44,16 +44,13 @@
 */
 .idnkgtp-style-style02 .button {
     position: fixed;
-    right: 4%;
-    bottom: 4%;
+    right: 50px;
+    bottom: 50px;
     display: block;
-    width: 60px;
-    height: 61px;
+    width: var(--pulseSize);
+    height: var(--pulseSize);
     border-radius: 50%;
-    border: none;
-    outline: none;
-    color: #fff;
-    background-color: #2980b9;
+    background-color: var(--blue);
     box-shadow: 0 0 0 0 rgb(255 255 255 / 10%);
     animation: pulse 1s ease-in-out infinite;
     cursor: pointer;
@@ -87,7 +84,7 @@
 }
 
 .idnkgtp-style-style03 .btn-top {
-    background-color: #7f54b3;
+    background-color: var(--blue);
     border: none;
     outline: none;
     border-radius: 50%;
@@ -101,18 +98,18 @@
 
 @keyframes pulsate {
     0% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(#fff, 0.65);
+        transform: scale(1.25);
+        box-shadow: 0 0 0 0 var(--blue);
     }
 
     75% {
         transform: scale(1);
-        box-shadow: 0 0 0 8px rgba(#fff, 0);
+        box-shadow: 0 0 0 8px var(--blue);
     }
 
     100% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(#fff, 0);
+        transform: scale(1.45);
+        box-shadow: 0 0 0 0 var(--blue);
     }
 }
 /*
@@ -120,41 +117,40 @@
 */
 .idnkgtp-style-style04 .idnkgototopcss{
     position: relative;
-    bottom: 8px;
+    bottom: 0;
 }
 
 .idnkgtp-style-style04 .pulse-to-top {
     position: absolute;
     right: 2%;
     bottom: 2%;
-    width: 60px;
-    height: 60px;
-    background: rgb(255, 0, 64);
+    width: var(--pulseSize);
+    height: var(--pulseSize);
+    background: var(--blue);
     border-radius: 50%;
-    color: #fff;
     font-size: 20px;
     text-align: center;
     line-height: 75px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    animation: animate 2s linear infinite;
+    animation: animate04 2s linear infinite;
     z-index: 1200;
 }
 
-@keyframes animate {
+@keyframes animate04 {
     0% {
-        box-shadow: 0 0 0 0 rgba(255, 0, 64, 0.7), 0 0 0 0 rgba(255, 0, 64, 0.7);
+        box-shadow: 0 0 0 0 var(--blue), 0 0 0 0 var(--transparentBlue);
     }
 
     40% {
-        box-shadow: 0 0 0 50px rgba(255, 0, 64, 0), 0 0 0 0 rgba(255, 0, 64, 0.7);
+        box-shadow: 0 0 0 50px var(--transparentBlue), 0 0 0 0 var(--blue);
     }
 
     80% {
-        box-shadow: 0 0 0 50px rgba(255, 0, 64, 0), 0 0 0 30px rgba(255, 0, 64, 0);
+        box-shadow: 0 0 0 50px var(--transparentBlue), 0 0 0 30px var(--transparentBlue);
     }
 
     100% {
-        box-shadow: 0 0 0 0 rgba(255, 0, 64, 0), 0 0 0 30px rgba(255, 0, 64, 0);
+        box-shadow: 0 0 0 0 var(--transparentBlue), 0 0 0 30px var(--transparentBlue);
     }
 }
 /*
@@ -166,19 +162,19 @@
 }
 
 .idnkgtp-style-style05 .box-to-top {
-    width: 60px;
-    height: 60px;
-    background: cornflowerblue;
+    width: var(--pulseSize);
+    height: var(--pulseSize);
+    background: var(--blue);
     border-radius: 50%;
     text-align: center;
     line-height: 80px;
-    animation: animate 2s linear infinite;
+    animation: animate05 2s linear infinite;
     cursor: pointer;
 }
 
-@keyframes animate {
+@keyframes animate05 {
     0% {
-        box-shadow: 0 0 0 0 cornflowerblue;
+        box-shadow: 0 0 0 0 var(--blue);
     }
     40% {
         box-shadow: 0 0 0 50px rgba(255, 26, 67, 0);
@@ -194,35 +190,30 @@
     STYLE 06
 */
 .idnkgtp-style-style06 .pulse-to-top {
-    width: 60px;
-    height: 60px;
-    background: #f96989;
+    width: var(--pulseSize);
+    height: var(--pulseSize);
     border-radius: 50%;
-    color: #fff;
     text-align: center;
     line-height: 60px;
-    font-size: 24px;
-    font-family: Verdana, Geneva, sans-serif;
-    text-transform: uppercase;
-    animation: animate 2s linear infinite;
+    animation: animate06 2s linear infinite;
     transform: scale(0.8);
 }
 
-@keyframes animate {
+@keyframes animate06 {
   0% {
-    box-shadow: 0 0 0 0 rgba(255, 109, 74, 0.7), 0 0 0 0 rgba(255, 109, 74, 0.7);
+    box-shadow: 0 0 0 0 var(--blue), 0 0 0 0 var(--blue);
     /*     filter: hue-rotate(0deg); */
   }
   40% {
-    box-shadow: 0 0 0 2rem rgba(255, 109, 74, 0),
-      0 0 0 0 rgba(255, 109, 74, 0.7);
+    box-shadow: 0 0 0 3rem var(--transparentBlue),
+      0 0 0 0 var(--blue);
   }
   80% {
-    box-shadow: 0 0 0 2rem rgba(255, 109, 74, 0),
-      0 0 0 1rem rgba(255, 109, 74, 0);
+    box-shadow: 0 0 0 2rem var(--transparentBlue),
+      0 0 0 2rem var(--transparentBlue);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(255, 109, 74, 0), 0 0 0 1rem rgba(255, 109, 74, 0);
+    box-shadow: 0 0 0 0 var(--transparentBlue), 0 0 0 1rem var(--transparentBlue);
     /*     filter: hue-rotate(360deg); */
   }
 }
@@ -233,15 +224,14 @@
   width: 60px;
   height: 60px;
   border-radius: 50px;
-  background: #fbb32f;
-  animation: pulse 1500ms infinite;
+  animation: pulse07 1500ms infinite;
 }
-@keyframes pulse {
+@keyframes pulse07 {
   0% {
-    box-shadow: 0 0 0 0 #fbb32f;
+    box-shadow: 0 0 0 0 var(--blue);
   }
   100% {
-    box-shadow: 0 0 0 17px #fbb32f01;
+    box-shadow: 0 0 0 17px var(--transparentBlue);
   }
 }
 /*
@@ -262,11 +252,11 @@
   inset:0;
   border:1px solid white;
   border-radius:50%;
-  animation-name:pulse;
+  animation-name:pulse08;
   animation-duration:2s;
   animation-timing-function:linear;
   animation-iteration-count:infinite;
-  box-shadow: 0 0 10px 2px white;
+  box-shadow: 0 0 10px 2px var(--blue);
 }
 
 .idnkgtp-style-style08 .pulse-to-top::after{
@@ -275,15 +265,15 @@
   inset:0;
   border:1px solid white;
   border-radius:50%;
-  animation-name:pulse;
+  animation-name:pulse08;
   animation-duration:2s;
   animation-timing-function:linear;
   animation-iteration-count:infinite;
   animation-delay:1s;
-  box-shadow: 0 0 10px 2px white;
+  box-shadow: 0 0 10px 2px var(--blue);
 }
 
-@keyframes pulse{
+@keyframes pulse08 {
   0%{
     transform:scale(1);
     opacity:0;
@@ -304,7 +294,10 @@
   border-radius: 10px;
   -webkit-animation: wiggle 1s infinite;
   animation: wiggle 1s infinite;
-  background: #ffffff78;
+}
+
+.idnkgototopcontent.idnkgtp-style-style09 a{
+    color: var(--blue);
 }
 
 @-webkit-keyframes wiggle {
@@ -332,19 +325,11 @@
     STYLE 10
 */
 .idnkgtp-style-style10 .pulse-to-top {
-  width: var(--pulseSize);
-  height: var(--pulseSize);
+  
   border-radius: 50%;
-  background: var(--blue);
-  box-shadow: 0 0 0 var(--blue);
   animation: pulsing 2s infinite;
   transition: all 0.2s;
   cursor: pointer;
-}
-
-.idnkgtp-style-style10 .pulse-to-top:hover {
-  --blue: rgba(209, 167, 160,.65);
-  --transparentBlue: rgba(209, 167, 160,0);
 }
 
 .idnkgtp-style-style10 .pulse-to-top:active {
@@ -365,40 +350,33 @@
 /*
     STYLE 11
 */
-:root {
-  --pulseSize: 60px;
-  --blue: rgba(95,139,250,.65);
-  --transparentBlue: rgba(95,139,250,0);
-}
 
 .idnkgtp-style-style11 .pulse-to-top {
   font-weight: bold;
   letter-spacing: 0.1rem;
-  width: 60px;
-  height: 60px;
+  width: var(--pulseSize);
+  height: var(--pulseSize);
   border-radius: 50%;
-  background: #efeb24;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #1D1F20;
-  animation: 1.5s linear 0s infinite normal pulse;
+  animation: 1.5s linear 0s infinite normal pulse11;
 }
 
 .idnkgtp-style-style11 .pulse-to-top:hover {
   animation: none;
 }
 
-@keyframes pulse {
+@keyframes pulse11 {
   0% {
     transform: scale(0.9);
-    box-shadow: 0px 1px 0px 3px #aba81a30, 0px 0px 0px 0px #efeb2450;
+    box-shadow: 0px 1px 0px 3px #aba81a30, 0px 0px 0px 0px var(--blue);
   }
   30% {
-    box-shadow: 0px 1px 0px 3px #aba81a30, 0px 0px 0px 25px #efeb2450;
+    box-shadow: 0px 1px 0px 3px #aba81a30, 0px 0px 0px 25px var(--blue);
   }
   70% {
-    box-shadow: 0px 1px 0px 3px #aba81a30, 0px 0px 0px 75px #efeb2410;
+    box-shadow: 0px 1px 0px 3px #aba81a30, 0px 0px 0px 75px var(--transparentBlue);
   }
   100% {
     transform: scale(1);

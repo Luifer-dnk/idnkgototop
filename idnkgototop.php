@@ -9,7 +9,7 @@ class IdnkGoToTop extends Module
     {
         $this->name = 'idnkgototop';
         $this->author = 'IDNK Soft';
-        $this->version = '1.0.0';
+        $this->version = '1.1.0';
         $this->tab = 'front_office_features';
         $this->need_instance = 0;
 
@@ -100,11 +100,15 @@ class IdnkGoToTop extends Module
     {
         Configuration::updateValue('IDNK_GOTOTOP_DESIGN', 'style10');
         Configuration::updateValue('IDNK_GOTOTOP_FONT_COLOR', '#000000');
-        Configuration::updateValue('IDNK_GOTOTOP_BG_COLOR', '#fff00');
+        Configuration::updateValue('IDNK_GOTOTOP_BG_COLOR', '#c7c7c7');
         Configuration::updateValue('IDNK_GOTOTOP_FONT_SIZE', '24px');
         Configuration::updateValue('IDNK_GOTOTOP_PADDING', '15px');
         Configuration::updateValue('IDNK_GOTOTOP_BORDER', 'none');
         Configuration::updateValue('IDNK_GOTOTOP_BORDER_RADIUS', '50%');
+        Configuration::updateValue('IDNK_GOTOTOP_PULSE_COLOR', '#bbbbbb');
+        Configuration::updateValue('IDNK_GOTOTOP_PULSE_COLOR_TRANS', '#74747400');
+        Configuration::updateValue('IDNK_GOTOTOP_PULSE_SIZE', '55px');
+
         return true;
     }
 
@@ -129,6 +133,9 @@ class IdnkGoToTop extends Module
         $paddingSpace = Configuration::get('IDNK_GOTOTOP_PADDING');
         $borderColor = Configuration::get('IDNK_GOTOTOP_BORDER');
         $borderRadius = Configuration::get('IDNK_GOTOTOP_BORDER_RADIUS');
+        $pulseColor = Configuration::get('IDNK_GOTOTOP_PULSE_COLOR');
+        $pulsetransColor = Configuration::get('IDNK_GOTOTOP_PULSE_COLOR_TRANS');
+        $pulseSize = Configuration::get('IDNK_GOTOTOP_PULSE_SIZE');
 
         $this->context->smarty->assign(
             [
@@ -138,7 +145,10 @@ class IdnkGoToTop extends Module
                 'fontSize' => $fontSize,
                 'paddingSpace' => $paddingSpace,
                 'borderColor' => $borderColor,
-                'borderRadius' => $borderRadius
+                'borderRadius' => $borderRadius,
+                'pulseColor' => $pulseColor,
+                'pulsetransColor' => $pulsetransColor,
+                'pulseSize' => $pulseSize
             ]
         );
 

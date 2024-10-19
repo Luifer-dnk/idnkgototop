@@ -132,6 +132,29 @@ class AdminIdnkGoToTopConfigController extends ModuleAdminController
                     'col' => '4',
                     'required' => false
                 ],
+                [
+                    'type' => 'color',
+                    'label' => $this->l('Color Effect Pulse'),
+                    'name' => 'IDNK_GOTOTOP_PULSE_COLOR',
+                    'desc' => $this->l('Select color for pulse effect.'),
+                    'required' => true
+                ],
+                [
+                    'type' => 'color',
+                    'label' => $this->l('Color Effect Pulse transparency'),
+                    'name' => 'IDNK_GOTOTOP_PULSE_COLOR_TRANS',
+                    'desc' => $this->l('Select color for transparency pulse effect.'),
+                    'required' => true
+                ],
+                [
+                    'type' => 'text',
+                    'label' => $this->l('Pulse Size'),
+                    'name' => 'IDNK_GOTOTOP_PULSE_SIZE',
+                    'desc' => $this->l('Config for Pulse size.'),
+                    'size' => 10,
+                    'col' => '4',
+                    'required' => false
+                ],
             ],
             'submit' => [
                 'title' => $this->l('Save'),
@@ -175,6 +198,9 @@ class AdminIdnkGoToTopConfigController extends ModuleAdminController
         $helper->fields_value['IDNK_GOTOTOP_PADDING'] = Configuration::get('IDNK_GOTOTOP_PADDING');
         $helper->fields_value['IDNK_GOTOTOP_BORDER'] = Configuration::get('IDNK_GOTOTOP_BORDER');
         $helper->fields_value['IDNK_GOTOTOP_BORDER_RADIUS'] = Configuration::get('IDNK_GOTOTOP_BORDER_RADIUS');
+        $helper->fields_value['IDNK_GOTOTOP_PULSE_COLOR'] = Configuration::get('IDNK_GOTOTOP_PULSE_COLOR');
+        $helper->fields_value['IDNK_GOTOTOP_PULSE_COLOR_TRANS'] = Configuration::get('IDNK_GOTOTOP_PULSE_COLOR_TRANS');
+        $helper->fields_value['IDNK_GOTOTOP_PULSE_SIZE'] = Configuration::get('IDNK_GOTOTOP_PULSE_SIZE');
 
         return $helper->generateForm($fields_form);
     }
@@ -189,6 +215,9 @@ class AdminIdnkGoToTopConfigController extends ModuleAdminController
             $paddingSpace = (string)Tools::getValue('IDNK_GOTOTOP_PADDING');
             $borderColor = (string)Tools::getValue('IDNK_GOTOTOP_BORDER');
             $borderRadius = (string)Tools::getValue('IDNK_GOTOTOP_BORDER_RADIUS');
+            $pulseColor = (string)Tools::getValue('IDNK_GOTOTOP_PULSE_COLOR');
+            $pulsetransColor = (string)Tools::getValue('IDNK_GOTOTOP_PULSE_COLOR_TRANS');
+            $pulseSize = (string)Tools::getValue('IDNK_GOTOTOP_PULSE_SIZE');
 
             // Guardar los valores en la configuración
             Configuration::updateValue('IDNK_GOTOTOP_DESIGN', $effectStyle);
@@ -198,6 +227,9 @@ class AdminIdnkGoToTopConfigController extends ModuleAdminController
             Configuration::updateValue('IDNK_GOTOTOP_PADDING', $paddingSpace);
             Configuration::updateValue('IDNK_GOTOTOP_BORDER', $borderColor);
             Configuration::updateValue('IDNK_GOTOTOP_BORDER_RADIUS', $borderRadius);
+            Configuration::updateValue('IDNK_GOTOTOP_PULSE_COLOR', $pulseColor);
+            Configuration::updateValue('IDNK_GOTOTOP_PULSE_COLOR_TRANS', $pulsetransColor);
+            Configuration::updateValue('IDNK_GOTOTOP_PULSE_SIZE', $pulseSize);
 
             $this->confirmations[] = $this->l('Settings updated');
         }

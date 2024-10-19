@@ -2,16 +2,16 @@
     <div class="idnkgototopcontent idnkgtp-style-{$effectStyle}">
         <a href="javascript:void(0);" id="gotoTop" title="{l s='Scroll to Top' mod='idnkgototop'}">
             <i class="fas fa-arrow-up idnkgototopcss" style="color: {$fontColor}; background-color: {$bgColor}; font-size: {$fontSize}; padding: {$paddingSpace}; border: {$borderColor}; border-radius: {$borderRadius}; position: relative; z-index: 1000;"></i>
-            <div class="pulse-to-top" style="animation-delay: -3s"></div>
-            <div class="pulse-to-top" style="animation-delay: -2s"></div>
-            <div class="pulse-to-top" style="animation-delay: -1s"></div>
-            <div class="pulse-to-top" style="animation-delay: 0s"></div>
+            <div class="pulse-to-top" style="animation-delay: -3s; --blue: {$pulseColor}; --transparentBlue: {$pulsetransColor}; --pulseSize: {$pulseSize}"></div>
+            <div class="pulse-to-top" style="animation-delay: -2s; --blue: {$pulseColor}; --transparentBlue: {$pulsetransColor}; --pulseSize: {$pulseSize}"></div>
+            <div class="pulse-to-top" style="animation-delay: -1s; --blue: {$pulseColor}; --transparentBlue: {$pulsetransColor}; --pulseSize: {$pulseSize}"></div>
+            <div class="pulse-to-top" style="animation-delay: 0s; --blue: {$pulseColor}; --transparentBlue: {$pulsetransColor}; --pulseSize: {$pulseSize}"></div>
         </a>
     </div>
 {elseif $effectStyle == 'style02'}
     <div class="idnkgototopcontent idnkgtp-style-{$effectStyle}">
         <a href="javascript:void(0);" id="gotoTop" title="{l s='Scroll to Top' mod='idnkgototop'}">
-            <button class="button">
+            <button class="button"  style="--blue: {$pulseColor}; --transparentBlue: {$pulsetransColor}; --pulseSize: {$pulseSize}">
                 <i class="fas fa-arrow-up idnkgototopcss" style="color: {$fontColor}; background-color: {$bgColor}; font-size: {$fontSize}; padding: {$paddingSpace}; border: {$borderColor}; border-radius: {$borderRadius};"></i>
             </button>
         </a>
@@ -19,7 +19,7 @@
 {elseif $effectStyle == 'style03'}
     <div class="idnkgototopcontent idnkgtp-style-{$effectStyle}">
         <a href="javascript:void(0);" id="gotoTop" title="{l s='Scroll to Top' mod='idnkgototop'}">
-            <button class="btn-top">
+            <button class="btn-top" style="--blue: {$pulseColor}; --transparentBlue: {$pulsetransColor}; --pulseSize: {$pulseSize}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="m18 15-6-6-6 6" />
                 </svg>
@@ -29,7 +29,7 @@
 {elseif $effectStyle == 'style04'}
 <div class="idnkgototopcontent idnkgtp-style-{$effectStyle}">
     <a href="javascript:void(0);" id="gotoTop" title="{l s='Scroll to Top' mod='idnkgototop'}">
-        <div class="pulse-to-top">
+        <div class="pulse-to-top" style="--blue: {$pulseColor}; --transparentBlue: {$pulsetransColor}; --pulseSize: {$pulseSize}">
             <i class="fas fa-arrow-up idnkgototopcss" style="color: {$fontColor}; background-color: {$bgColor}; font-size: {$fontSize}; padding: {$paddingSpace}; border: {$borderColor}; border-radius: {$borderRadius};"></i>
         </div>
     </a>
@@ -37,7 +37,7 @@
 {elseif $effectStyle == 'style05'}
 <div class="idnkgototopcontent idnkgtp-style-{$effectStyle}">
     <a href="javascript:void(0);" id="gotoTop" title="{l s='Scroll to Top' mod='idnkgototop'}">
-        <div class="box-to-top">
+        <div class="box-to-top" style="--blue: {$pulseColor}; --transparentBlue: {$pulsetransColor}; --pulseSize: {$pulseSize}">
             <i class="fas fa-arrow-up idnkgototopcss" style="color: {$fontColor}; background-color: {$bgColor}; font-size: {$fontSize}; padding: {$paddingSpace}; border: {$borderColor}; border-radius: {$borderRadius};"></i>
         </div>
     </a>
@@ -45,7 +45,7 @@
 {elseif $effectStyle == 'style06'}
 <div class="idnkgototopcontent idnkgtp-style-{$effectStyle}">
     <a href="javascript:void(0);" id="gotoTop" title="{l s='Scroll to Top' mod='idnkgototop'}">
-        <div class="pulse-to-top">
+        <div class="pulse-to-top" style="--blue: {$pulseColor}; --transparentBlue: {$pulsetransColor}; --pulseSize: {$pulseSize}">
             <i class="fas fa-arrow-up idnkgototopcss" style="color: {$fontColor}; background-color: {$bgColor}; font-size: {$fontSize}; padding: {$paddingSpace}; border: {$borderColor}; border-radius: {$borderRadius};"></i>
         </div>
     </a>
@@ -53,7 +53,7 @@
 {elseif $effectStyle == 'style07'}
 <div class="idnkgototopcontent idnkgtp-style-{$effectStyle}">
     <a href="javascript:void(0);" id="gotoTop" title="{l s='Scroll to Top' mod='idnkgototop'}">
-        <div class="pulse-to-top">
+        <div class="pulse-to-top" style="--blue: {$pulseColor}; --transparentBlue: {$pulsetransColor}; --pulseSize: {$pulseSize}">
             <i class="fas fa-arrow-up idnkgototopcss" style="color: {$fontColor}; background-color: {$bgColor}; font-size: {$fontSize}; padding: {$paddingSpace}; border: {$borderColor}; border-radius: {$borderRadius};"></i>
         </div>
     </a>
@@ -61,7 +61,7 @@
 {elseif $effectStyle == 'style08'}
 <div class="idnkgototopcontent idnkgtp-style-{$effectStyle}">
     <a href="javascript:void(0);" id="gotoTop" title="{l s='Scroll to Top' mod='idnkgototop'}">
-        <div class="pulse-to-top">
+        <div class="pulse-to-top" style="--blue: {$pulseColor};">
             <i class="fas fa-arrow-up idnkgototopcss" style="color: {$fontColor}; background-color: {$bgColor}; font-size: {$fontSize}; padding: {$paddingSpace}; border: {$borderColor}; border-radius: {$borderRadius};"></i>
         </div>
     </a>
@@ -80,7 +80,7 @@
 {elseif $effectStyle == 'style10'}
 <div class="idnkgototopcontent idnkgtp-style-{$effectStyle}">
     <a href="javascript:void(0);" id="gotoTop" title="{l s='Scroll to Top' mod='idnkgototop'}">
-        <div class="pulse-to-top">
+        <div class="pulse-to-top" style="--blue: {$pulseColor}; --transparentBlue: {$pulsetransColor}; --pulseSize: {$pulseSize}">
             <i class="fas fa-arrow-up idnkgototopcss" style="color: {$fontColor}; background-color: {$bgColor}; font-size: {$fontSize}; padding: {$paddingSpace}; border: {$borderColor}; border-radius: {$borderRadius};"></i>
         </div>
     </a>
@@ -88,7 +88,7 @@
 {elseif $effectStyle == 'style11'}
 <div class="idnkgototopcontent idnkgtp-style-{$effectStyle}">
     <a href="javascript:void(0);" id="gotoTop" title="{l s='Scroll to Top' mod='idnkgototop'}">
-        <div class="pulse-to-top">
+        <div class="pulse-to-top" style="--blue: {$pulseColor}; --transparentBlue: {$pulsetransColor}; --pulseSize: {$pulseSize}">
             <i class="fas fa-arrow-up idnkgototopcss" style="color: {$fontColor}; background-color: {$bgColor}; font-size: {$fontSize}; padding: {$paddingSpace}; border: {$borderColor}; border-radius: {$borderRadius};"></i>
         </div>
     </a>
